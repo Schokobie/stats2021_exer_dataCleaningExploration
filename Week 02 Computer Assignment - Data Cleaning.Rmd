@@ -53,6 +53,8 @@ The rio package works for importing several different types of data files. We're
 dataset <- rio::import("Week1.csv")
 ```
 
+
+
 ## Examine the dataset
 
 You can uncomment the code below to try different ways to examine the dataset in RStudio. (Remove the # sign from one line at a time.)
@@ -94,7 +96,7 @@ levels(dataset$nominal)
 dataset <- dataset %>% mutate(ordinal = as.factor(ordinal))
 levels(dataset$ordinal)
 # These could have been done on a single line.
-# dataset <- dataset %>% mutate_at(vars(nominal, ordinal), factor)
+dataset <- dataset %>% mutate_at(vars(nominal, ordinal), factor)
 
 # Correct order can be specified for ordinal factors.
 dataset <- dataset %>% mutate(ordinal = recode_factor(ordinal,"first"="first","second"="second","third"="third","fourth"="fourth",.ordered=TRUE))
